@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Event Listener to Display Current Date and Time -->
+    <div class="section">
+        <h2>1. Display Current Date and Time</h2>
+        <button id="dateButton">Show Date and Time</button>
+        <p id="dateOutput"></p>
+    </div>
+
+    <!-- 2. JavaScript Validation -->
+    <div class="section">
+        <h2>2. JavaScript Validation</h2>
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <span class="error" id="error"></span><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- 3. Debugging with console.log() -->
+    <div class="section">
+        <h2>3. Debugging with console.log()</h2>
+        <button onclick="debuggingExample()">Debug Example</button>
+    </div>
+
+    <!-- 4. Set, Get, and Check Cookies -->
+    <div class="section">
+        <h2>4. Cookie Functions</h2>
+        <button onclick="setCookie('myCookie', 'cookieValue', 1)">Set Cookie</button>
+        <button onclick="alert(getCookie('myCookie'))">Get Cookie</button>
+        <button onclick="alert(checkCookie('myCookie'))">Check Cookie</button>
+    </div>
+
+    <!-- 5. JSON Object -->
+    <div class="section">
+        <h2>5. JSON Object</h2>
+        <p id="jsonOutput"></p>
+    </div>
+
+    <script>
+        // 1. Event Listener to Display Current Date and Time
+        document.getElementById('dateButton').addEventListener('click', function () {
+            const now = new Date();
+            document.getElementById('dateOutput').textContent = now.toString();
+        });
+
+        // 2. JavaScript Validation
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            const nameField = document.getElementById('name');
+            const errorField = document.getElementById('error');
+
+            if (nameField.value.trim() === '') {
+                errorField.textContent = 'Name cannot be empty!';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                errorField.textContent = '';
+            }
+        });
+
+        // 3. Debugging with console.log()
+        function debuggingExample() {
+            const testObject = { name: 'Alice', age: 25 };
+            console.log('Test Object:', testObject);
+            console.log('Name:', testObject.name);
+            console.log('Age:', testObject.age);
+        }
+
+        // 4. Set, Get, and Check Cookies
+        function setCookie(name, value, days) {
+            let expires = '';
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = '; expires=' + date.toUTCString();
+            }
+            document.cookie = name + '=' + (value || '') + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + '=';
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function checkCookie(name) {
+            const cookie = getCookie(name);
+            if (cookie) {
+                return 'Cookie found: ' + cookie;
+            } else {
+                return 'Cookie not found.';
+            }
+        }
+
+        // 5. JSON Object
+        const jsonObject = {
+            name: 'John Doe',
+            age: 30,
+            occupation: 'Software Developer'
+        };
+
+        document.getElementById('jsonOutput').textContent =
+            `Name: ${jsonObject.name}, Age: ${jsonObject.age}, Occupation: ${jsonObject.occupation}`;
+    </script>
+
+</body>
+
+</html>

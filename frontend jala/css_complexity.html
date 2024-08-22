@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layouts Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table.fixed-layout {
+            table-layout: fixed;
+        }
+
+        table.none-layout {
+            table-layout: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        ul.custom-list {
+            list-style-type: square;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .responsive-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Table with Fixed and Auto Layout -->
+    <div class="section">
+        <h2>1. Table Layout</h2>
+        <h3>Fixed Layout</h3>
+        <table class="fixed-layout">
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <tr>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Auto Layout</h3>
+        <table class="none-layout">
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <tr>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 2. List with Different List Style Type -->
+    <div class="section">
+        <h2>2. Custom List Style</h2>
+        <ul class="custom-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <!-- 3. Grid with Different Types -->
+    <div class="section">
+        <h2>3. Grid Layout</h2>
+        <div class="grid-container">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+        </div>
+    </div>
+
+    <!-- 4. Hero Image -->
+    <div class="section">
+        <h2>4. Hero Image</h2>
+        <div class="hero-image"></div>
+    </div>
+
+    <!-- 5. Viewport and Media Queries -->
+    <div class="section">
+        <h2>5. Viewport, Media Queries, Image, and Video</h2>
+
+        <h3>Responsive Image</h3>
+        <img src="https://via.placeholder.com/800x400" alt="Placeholder Image" class="responsive-img">
+
+        <h3>Responsive Video</h3>
+        <video controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        // JavaScript to Show Date and Time
+        document.getElementById('dateButton').addEventListener('click', function () {
+            const now = new Date();
+            document.getElementById('dateOutput').textContent = now.toString();
+        });
+
+        // JavaScript Validation Example
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            const nameField = document.getElementById('name');
+            const errorField = document.getElementById('error');
+
+            if (nameField.value.trim() === '') {
+                errorField.textContent = 'Name cannot be empty!';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                errorField.textContent = '';
+            }
+        });
+
+        // Debugging Example
+        function debuggingExample() {
+            const testObject = { name: 'Alice', age: 25 };
+            console.log('Test Object:', testObject);
+            console.log('Name:', testObject.name);
+            console.log('Age:', testObject.age);
+        }
+
+        // Cookie Functions
+        function setCookie(name, value, days) {
+            let expires = '';
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = '; expires=' + date.toUTCString();
+            }
+            document.cookie = name + '=' + (value || '') + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + '=';
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function checkCookie(name) {
+            const cookie = getCookie(name);
+            if (cookie) {
+                return 'Cookie found: ' + cookie;
+            } else {
+                return 'Cookie not found.';
+            }
+        }
+
+        // JSON Object
+        const jsonObject = {
+            name: 'John Doe',
+            age: 30,
+            occupation: 'Software Developer'
+        };
+
+        document.getElementById('jsonOutput').textContent =
+            `Name: ${jsonObject.name}, Age: ${jsonObject.age}, Occupation: ${jsonObject.occupation}`;
+    </script>
+
+</body>
+
+</html>

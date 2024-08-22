@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Disappearing Button using `this` -->
+    <div class="section">
+        <h2>1. Disappearing Button using `this`</h2>
+        <button onclick="this.style.display='none'">Click to Disappear</button>
+    </div>
+
+    <!-- 2. Function Invocation using call() and apply() -->
+    <div class="section">
+        <h2>2. Function Invocation using call() and apply()</h2>
+        <p id="callApplyResult"></p>
+    </div>
+
+    <!-- 3. Simple Counter -->
+    <div class="section">
+        <h2>3. Simple Counter</h2>
+        <button onclick="incrementCounter()">Count</button>
+        <p>Counter: <span id="counterValue">0</span></p>
+    </div>
+
+    <!-- 4. Counter with Getter and Setter -->
+    <div class="section">
+        <h2>4. Counter with Getter and Setter</h2>
+        <button onclick="myCounter.increment()">Increment</button>
+        <button onclick="myCounter.decrement()">Decrement</button>
+        <p>Counter: <span id="getterSetterCounter">0</span></p>
+    </div>
+
+    <!-- 5. Adding Properties to Function Using Prototypes -->
+    <div class="section">
+        <h2>5. Adding Properties to Function Using Prototypes</h2>
+        <p id="prototypeResult"></p>
+    </div>
+
+    <script>
+        // 2. Function Invocation using call() and apply()
+
+        function showDetails(city, country) {
+            return `My name is ${this.name}, and I live in ${city}, ${country}.`;
+        }
+
+        const person = { name: "John" };
+
+        // Using call()
+        const callResult = showDetails.call(person, "New York", "USA");
+
+        // Using apply()
+        const applyResult = showDetails.apply(person, ["Los Angeles", "USA"]);
+
+        document.getElementById("callApplyResult").innerText =
+            `call(): ${callResult}\napply(): ${applyResult}`;
+
+
+        // 3. Simple Counter
+
+        let counter = 0;
+
+        function incrementCounter() {
+            counter++;
+            document.getElementById("counterValue").innerText = counter;
+        }
+
+        // 4. Counter with Getter and Setter
+
+        const myCounter = {
+            _count: 0,
+            get count() {
+                return this._count;
+            },
+            set count(value) {
+                this._count = value;
+                document.getElementById("getterSetterCounter").innerText = this._count;
+            },
+            increment() {
+                this.count = this._count + 1;
+            },
+            decrement() {
+                this.count = this._count - 1;
+            }
+        };
+
+        // 5. Adding Properties to Function Using Prototypes
+
+        function User(name) {
+            this.name = name;
+        }
+
+        // Add a method to the prototype
+        User.prototype.sayHello = function () {
+            return `Hello, ${this.name}!`;
+        };
+
+        // Add another property to the prototype
+        User.prototype.age = 30;
+
+        const user = new User("Alice");
+        document.getElementById("prototypeResult").innerText =
+            `${user.sayHello()} Age: ${user.age}`;
+
+        // 6. Keywords and existing functions in JavaScript
+        // Here, I've used 'this', 'call', 'apply', 'get', 'set', 'prototype' in the above examples.
+    </script>
+
+</body>
+
+</html>

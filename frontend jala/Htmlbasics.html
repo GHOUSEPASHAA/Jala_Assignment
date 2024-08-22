@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics HTML Page</title>
+
+    <style>
+        /* 4. Pseudo-classes and elements */
+
+        /* Link styling with pseudo-classes */
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        a:active {
+            color: green;
+        }
+
+        /* Styling the first letter of a paragraph */
+        p::first-letter {
+            font-size: 200%;
+            color: #ff4500;
+        }
+
+        /* Styling the first line of a paragraph */
+        p::first-line {
+            font-weight: bold;
+        }
+
+        /* Styling input focus */
+        input:focus {
+            border: 2px solid blue;
+        }
+
+        /* Custom style for labels */
+        label::after {
+            content: " *";
+            /* Adding an asterisk after labels */
+            color: red;
+        }
+
+        /* Basic styling for the division and span */
+        .my-division {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #f0f8ff;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Understanding the basics.html -->
+    <!-- This file is a new basics.html which will demonstrate various HTML tags. -->
+
+    <!-- 2. HTML Tags Demonstration -->
+    <h1>Welcome to My Basics HTML Page</h1>
+
+    <p>This is a <i>paragraph</i> that contains some <b>bold</b> and <i>italic</i> text.</p>
+
+    <p>Here is a <a href="https://www.example.com" target="_blank">link to an external site</a>.</p>
+
+    <p>Below is an unordered list:</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <p>And here is a blockquote:</p>
+    <blockquote cite="https://www.example.com">
+        This is a blockquote example. It represents a section that is quoted from another source.
+    </blockquote>
+
+    <!-- Horizontal Rule -->
+    <hr>
+
+    <!-- Image -->
+    <img src="data:image/jpeg;base64,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" 
+    alt="Example Image" width="300">
+
+    <!-- Division and Span -->
+    <div class="my-division">
+        This is a <span class="highlight">division</span> with a highlighted span inside it.
+    </div>
+
+    <!-- Label and Input -->
+    <form action="#">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- 3. Navigation within the page -->
+    <p>Jump to the <a href="#section2">second section</a> of this page.</p>
+
+    <!-- Adding some space for scrolling -->
+    <div style="height: 600px;"></div>
+
+    <!-- Second Section -->
+    <h2 id="section2">Second Section</h2>
+    <p>This is the second section of the page, which you navigated to using an internal link.</p>
+
+</body>
+
+</html>

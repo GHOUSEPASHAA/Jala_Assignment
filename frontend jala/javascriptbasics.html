@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. Single Line and Multiline Comments -->
+    <div class="section">
+        <h2>1. Comments in JavaScript</h2>
+        <p>Check the JavaScript code for single-line and multi-line comments.</p>
+    </div>
+
+    <script>
+        // This is a single-line comment
+
+        /*
+         This is a multi-line comment.
+         It can span multiple lines.
+         It's useful for adding detailed explanations or commenting out large blocks of code.
+        */
+    </script>
+
+    <!-- 2. Array Sorting with Button Click -->
+    <div class="section">
+        <h2>2. Array Sorting Example</h2>
+        <button onclick="sortFruits()">Sort Fruits in Descending Order</button>
+        <p id="fruitsArray"></p>
+    </div>
+
+    <script>
+        // Array of fruit names
+        let fruits = ["Apple", "Banana", "Cherry", "Mango", "Orange"];
+
+        // Function to display and sort the array
+        function sortFruits() {
+            fruits.sort((a, b) => b.localeCompare(a)); // Sort in descending order
+            document.getElementById("fruitsArray").innerHTML = fruits.join(", ");
+        }
+
+        // Display the original array on page load
+        document.getElementById("fruitsArray").innerHTML = fruits.join(", ");
+    </script>
+
+    <!-- 3. FOR/IN Loop Example -->
+    <div class="section">
+        <h2>3. FOR/IN Loop Example</h2>
+        <p>Check the console for the output of the FOR/IN loop.</p>
+    </div>
+
+    <script>
+        // Object for demonstration
+        let car = { make: "Toyota", model: "Corolla", year: 2021 };
+
+        // FOR/IN loop to iterate over the properties of the car object
+        for (let key in car) {
+            console.log(key + ": " + car[key]);
+        }
+    </script>
+
+    <!-- 4. Object Property Access -->
+    <div class="section">
+        <h2>4. Object Property Access</h2>
+        <p id="personDetails"></p>
+    </div>
+
+    <script>
+        // Creating an object "person"
+        let person = {
+            firstname: "John",
+            lastname: "Doe"
+        };
+
+        // Accessing properties using dot notation
+        let fullNameDot = person.firstname + " " + person.lastname;
+
+        // Accessing properties using bracket notation
+        let fullNameBracket = person["firstname"] + " " + person["lastname"];
+
+        // Displaying the properties
+        document.getElementById("personDetails").innerHTML = "Dot Notation: " + fullNameDot + "<br>" +
+            "Bracket Notation: " + fullNameBracket;
+    </script>
+
+    <!-- 5. Variable Hoisting Example -->
+    <div class="section">
+        <h2>5. Variable Hoisting Example</h2>
+        <p id="hoistingExample"></p>
+    </div>
+
+    <script>
+        // Variable hoisting demonstration
+        hoistedVar = "This variable is hoisted!";
+        document.getElementById("hoistingExample").innerHTML = hoistedVar;
+        var hoistedVar; // Declaration after initialization
+    </script>
+
+    <!-- 6. Strict Mode Example -->
+    <div class="section">
+        <h2>6. Strict Mode Example</h2>
+        <p>Check the console for the strict mode error message.</p>
+    </div>
+
+    <script>
+        "use strict"; // Enabling strict mode
+
+        try {
+            // Uncommenting the following line will cause an error in strict mode
+            // undeclaredVar = "This will cause an error in strict mode!";
+            console.log("Strict mode is active.");
+        } catch (error) {
+            console.error("Error:", error.message);
+        }
+    </script>
+
+</body>
+
+</html>

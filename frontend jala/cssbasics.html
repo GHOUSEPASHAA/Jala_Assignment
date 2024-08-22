@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- The DOCTYPE declaration defines the document type and version of HTML being used. It's important because it helps the browser render the page correctly. -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS and HTML Practice</title>
+
+    <!-- Syntax to link an external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* 1. CSS comments are written like this */
+
+        /* 2. Page with different background color and image */
+        .background-image-page {
+            background-color: lightblue;
+            /* Background color */
+            background-image: url('background.jpg');
+            /* Image URL */
+            background-attachment: fixed;
+            /* Image does not scroll with the page */
+            background-size: cover;
+            /* Size of the background image */
+            height: 100vh;
+            /* Full height of the viewport */
+        }
+
+        /* 3. Page with different border styles on each side */
+        .border-style-page {
+            border-top: 5px solid red;
+            /* Top border */
+            border-right: 10px dashed blue;
+            /* Right border */
+            border-bottom: 15px dotted green;
+            /* Bottom border */
+            border-left: 20px double purple;
+            /* Left border */
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* 4. Page with height and width set in pixels and percentages */
+        .height-width-page {
+            width: 50%;
+            /* 50% width of the parent */
+            height: 200px;
+            /* 200px height */
+            background-color: lightgray;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .height-width-pixel {
+            width: 300px;
+            /* Fixed width in pixels */
+            height: 50%;
+            /* 50% height of the parent */
+            background-color: lightcoral;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /* 5. Page with different font styles */
+        .font-style-page {
+            font-family: 'Arial', sans-serif;
+            /* Font family */
+            font-size: 20px;
+            /* Font size */
+            color: navy;
+            /* Font color */
+            text-align: center;
+            /* Text alignment */
+        }
+
+        .font-style-page h1 {
+            font-style: italic;
+            /* Italic font style */
+            font-weight: bold;
+            /* Bold font weight */
+            text-decoration: underline;
+            /* Underlined text */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 2. Background Image and Color -->
+    <section class="background-image-page">
+        <h1>This is a page with a background image and color</h1>
+        <p>The background image does not scroll with the rest of the page.</p>
+    </section>
+
+    <!-- 3. Border Styles -->
+    <section class="border-style-page">
+        <h1>This page has different border styles</h1>
+        <p>The top, right, bottom, and left borders have different widths, colors, and styles.</p>
+    </section>
+
+    <!-- 4. Height and Width Settings -->
+    <section class="height-width-page">
+        <h1>This section has 50% width and 200px height</h1>
+    </section>
+    <section class="height-width-pixel">
+        <h1>This section has 300px width and 50% height</h1>
+    </section>
+
+    <!-- 5. Font Styles -->
+    <section class="font-style-page">
+        <h1>This is a page with different font styles</h1>
+        <p>The font family, size, color, and alignment are customized.</p>
+    </section>
+
+</body>
+
+</html>
